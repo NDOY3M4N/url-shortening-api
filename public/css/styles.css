@@ -97,7 +97,7 @@ html body p {
 }
 .btn--nav {
   font-size: 0.85rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.6rem 1.5rem;
 }
 .btn--form, .btn--copy {
   width: 100%;
@@ -168,7 +168,7 @@ html body p {
 .navbar__links--left li a, .navbar__links--right li a {
   color: #fff;
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   transition: color 0.6s ease-in-out;
 }
 .navbar__links--left li a.btn, .navbar__links--right li a.btn {
