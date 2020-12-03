@@ -1,0 +1,48 @@
+// ======== Colors ======== //
+// Primary
+$cyan: hsl(180, 66%, 49%);
+$dark-violet: hsl(257, 27%, 26%);
+
+// Secondary
+$red: hsl(0, 87%, 67%);
+
+// Neutral
+$gray: hsl(0, 0%, 75%);
+$grayish-violet: hsl(257, 7%, 63%);
+$very-dark-blue: hsl(255, 11%, 22%);
+$very-dark-violet: hsl(260, 8%, 14%);
+
+// ======== Mixin for media queries ======== //
+$breakpoints: (
+  "small": 700px,
+  "medium": 1024px
+);
+
+@mixin screen($breakpoint) {
+  $screen-width: map.get($breakpoints, $breakpoint);
+  
+  @media (min-width: $screen-width) {
+    @content
+  }
+}
+
+// ======== Resets ======== //
+html {
+  box-sizing: border-box;
+
+  body {
+    position: relative;
+
+    &.overlay { overflow: hidden; }
+  }
+
+  img { width: 100%; }
+  ul { list-style: none; }
+  a { text-decoration: none; }
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}

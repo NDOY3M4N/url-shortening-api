@@ -1,0 +1,102 @@
+// Footer
+.footer {
+  background: $very-dark-violet;
+  padding: 4rem 0;
+
+  img { width: initial; }
+
+  .container {
+    text-align: center;
+
+    > * + * { margin-top: 2.5rem; }
+
+    @include screen('medium') {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      column-gap: 6rem;
+      row-gap: 4rem;
+      align-items: start;
+      text-align: left;
+
+      > * + * { margin-top: 0; }
+    }
+  }
+
+  &__links {
+
+    > * + * { margin-top: 2rem; }
+
+    &__features,
+    &__resources,
+    &__company {
+      span {
+        font-weight: 700;
+        color: #fff;
+      }
+
+      ul {
+        margin-top: 1rem;
+        
+        li {
+          &:not(:first-child) { margin-top: 0.5rem; }
+          
+          a {
+            color: $gray;
+            font-weight: 500;
+            font-size: .85rem;
+            transition: color .6s ease-in-out;
+          }
+
+          &:hover a { color: $cyan; }
+        }
+      }
+    }
+
+    @include screen('small') {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+
+      > * + * { margin-top: 0; }
+    }
+
+    @include screen('medium') {
+      justify-content: flex-end;
+
+      > * + * { margin-left: 5rem; }
+    }
+  }
+
+  &__socials {
+    display: inline-flex;
+    align-items: center;
+
+    > * + * { margin-left: 1rem; }
+
+    li svg path { transition: fill .6s ease-in-out; }
+    
+    li:hover svg path {
+      fill: $cyan;
+    }
+
+    @include screen('small') {
+      justify-self: end;
+      > * + * { margin-left: 2rem; }
+    }
+
+    @include screen('medium') {
+      > * + * { margin-left: 1.5rem; }
+    }
+  }
+
+  &__attribution {
+    font-size: .75rem;
+
+    a { color: $cyan; }
+
+    @include screen('small') {
+      grid-column: 1/-1;
+      margin-left: auto;
+    }
+  } 
+}

@@ -1,0 +1,97 @@
+// Navbar
+.navbar {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__links {
+    position: absolute;
+    background: $dark-violet;
+    left: 0;
+    right: 0;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    top: 70%;
+    border-radius: .4rem;
+    padding: 0 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .6s ease-in-out;
+    z-index: 5;
+
+    &--left,
+    &--right {
+      text-align: center;
+      padding: 1.5rem 0;
+
+      li:not(:first-child) { margin-top: 1.5rem; }
+      li a {
+        color: #fff;
+        display: inline-block;
+        font-size: .85rem;
+        transition: color .6s ease-in-out;
+        
+        &.btn { width: 100%; }
+      }
+      li:hover a:not(.btn) {
+        color: $dark-violet;
+      }
+    }
+
+    &--right { border-top: 1px solid $grayish-violet; }
+
+    &.active {
+      top: 80%;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @include screen('small') {
+      position: static;
+      background: transparent;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+      pointer-events: all;
+
+      &--left,
+      &--right {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 0;
+
+        > * + * { margin-left: 1.5rem; }
+        li:not(:first-child) { margin-top: 0 }
+        li a:not(.btn) {
+          color: $grayish-violet;
+          display: inline;
+        }
+      }
+
+      &--left { margin-left: 3rem; }
+      &--right { margin-left: auto; border-top: none;}
+    }
+  }
+
+  &__menu {
+    display: block;
+    margin-left: auto;
+
+    @include screen('small') {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// Boost
+.boost {
+  padding: 5rem 0;
+  text-align: center;
+  background-color: $dark-violet;
+  background-image: url('../images/bg-boost-mobile.svg');
+  background-size: cover;
+
+  h2 { color: #fff; }
+
+  .btn {
+    margin-top: 2rem;
+  }
+
+  @include screen('small') {
+    background-image: url('../images/bg-boost-desktop.svg');
+  }
+}

@@ -1,0 +1,73 @@
+// ======== Components/Utils ======== //
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.overflow { overflow: hidden }
+
+.btn {
+  border: none;
+  background: $cyan;
+  padding: 1rem 2rem;
+  color: #fff;
+  border-radius: 10rem;
+  font-size: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    background: lighten($cyan, 15%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: lighten($cyan, 25%);
+  }
+
+  &--nav {
+    font-size: .85rem;
+    padding: .5rem 1.5rem;
+  }
+
+  &--form,
+  &--copy {
+    width: 100%;
+    border-radius: .5rem;
+    position: relative;
+    z-index: 2;
+    padding: .9rem 1.5rem;
+  }
+
+  &--copy::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    border-radius: .5rem;
+    background: $dark-violet;
+    z-index: -1;
+    transition: height .25s ease-in-out;
+  }
+
+  &--copy.active {
+    &::before {
+      height: 100%;
+    }
+  }
+
+  &--transparent {
+    border-radius: .5rem;
+    padding: .9rem 1.5rem;
+    background: transparent;
+
+    &:hover { background: lighten($gray, 9%); }
+  }
+}

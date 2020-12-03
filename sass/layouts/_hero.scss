@@ -1,0 +1,40 @@
+// Hero
+.hero {
+  padding-top: 2rem;
+  padding-bottom: 8rem;
+
+  &__img {
+    width: 150%;
+  }
+
+  &__desc {
+    margin-top: 2rem;
+    text-align: center;
+
+    > * + * { margin-top: 1rem; }
+  }
+
+  @include screen('small') {
+    display: flex;
+    align-items: center;
+
+    &__desc {
+      order: -1;
+      text-align: left;
+      width: 70%;
+      flex: 1;
+
+      .btn {
+        margin-top: 2rem;
+      }
+    }
+
+    &__img {
+      width: 30%;
+      flex: 1;
+      transform: translateX(5vw);
+
+      img { width: 130%; }
+    }
+  }
+}

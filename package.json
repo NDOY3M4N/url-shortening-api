@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build:css": "sass --no-source-map --watch sass/main.scss public/css/styles.css",
+    "serve": "concurrently \"npm run build:css\" \"live-server ./public\""
+  },
+  "author": "NDOY3M4N <pa.ndoye@outlook.fr>",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "live-server": "^1.2.1",
+    "sass": "^1.29.0"
+  }
+}
