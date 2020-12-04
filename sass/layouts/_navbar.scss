@@ -90,8 +90,42 @@
   }
 
   &__menu {
-    display: block;
     margin-left: auto;
+    width: 35px;
+    height: 20px;
+    position: relative;
+
+    &__bar {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: $dark-violet;
+      transition: all .2s ease-in-out;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:last-child {
+        top: 100%;
+      }
+    }
+    &.active .navbar__menu__bar {
+      &:first-child,
+      &:last-child {
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+
+      &:nth-child(2) { transform: rotate(45deg); }
+      &:nth-child(3) { transform: rotate(-45deg); }
+    }
 
     @include screen('small') {
       display: none;

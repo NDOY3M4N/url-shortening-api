@@ -238,8 +238,38 @@ html body p {
   }
 }
 .navbar__menu {
-  display: block;
   margin-left: auto;
+  width: 35px;
+  height: 20px;
+  position: relative;
+}
+.navbar__menu__bar {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #3b3054;
+  transition: all 0.2s ease-in-out;
+}
+.navbar__menu__bar:nth-child(2), .navbar__menu__bar:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.navbar__menu__bar:last-child {
+  top: 100%;
+}
+.navbar__menu.active .navbar__menu__bar:first-child, .navbar__menu.active .navbar__menu__bar:last-child {
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.navbar__menu.active .navbar__menu__bar:nth-child(2) {
+  transform: rotate(45deg);
+}
+.navbar__menu.active .navbar__menu__bar:nth-child(3) {
+  transform: rotate(-45deg);
 }
 @media (min-width: 700px) {
   .navbar__menu {

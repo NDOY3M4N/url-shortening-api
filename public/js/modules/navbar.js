@@ -8,5 +8,6 @@ const navbarLinks = document.querySelector('.navbar__links')
 
 menu.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
+  menu.classList.toggle('active')
   document.body.classList.toggle('overflow')
 })
