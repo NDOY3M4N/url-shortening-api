@@ -94,6 +94,7 @@
         background: #fff;
         border-radius: .5rem;
         animation: show .8s ease-in-out;
+        position: relative;
 
         &.remove { animation: remove .8s ease-in-out; }
 
@@ -138,10 +139,11 @@
           .btn--copy { margin-top: .8rem; }
 
           input {
-            border: none;
-            outline: none;
-            width: 0;
-            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
           }
         }
 

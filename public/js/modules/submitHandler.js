@@ -1,14 +1,24 @@
-// All the code relative to shorten the URLs
+/**
+ * Module relative to shorten the URLs
+ *
+ * @module submitHandler
+ * @see module:displays
+ */
 import { displayShortlyResult, displayError } from './displays.js'
 
 const form = document.querySelector('.shortly__form')
 const formBlock = form.querySelector('.shortly__form__block')
 
+/** @type {Array} The URLs stored in localStorage */
 export let urlSaved = JSON.parse(localStorage.getItem('savedURLs')) || []
 
+/** @type {HTMLUListElement} The container that will store the shorten links on the page */
 export const shortlyResultContainer = document.querySelector('.shortly__result')
+/** @type {HTMLButtonElement} The button for submitting the form */
 export const btnForm = form.querySelector('.btn--form')
-export const inputForm = form.user_link
+/** @type {HTMLInputElement} The input text used by the user to shorten the URL */
+export const inputForm = form.urlToShorten
+/** @type {HTMLSpanElement} Element used to show some feedback when something went wrong */
 export const errorForm = inputForm.nextElementSibling
 
 form.addEventListener('submit', (evt) => {
@@ -18,7 +28,10 @@ form.addEventListener('submit', (evt) => {
   else displayError('Please enter a valid link')
 })
 
-// Function to shorten the URL submitted through the API
+/**
+ * Function to shorten the URL submitted using the API
+ * @param  {string} inputValue The URL to shorten
+ */
 const shortly = async (inputValue) => {
   // We check if the submitted was not previously shorten by the API
   if (checkDuplicateURL(inputValue)) {
@@ -56,14 +69,26 @@ const shortly = async (inputValue) => {
   }
 }
 
-// Function to validate URLs submitted by the user
-const validURL = (str) => {
+/**
+ * Validate URLs submitted by the user
+ * 
+ * @function
+ * @param  {string}  url    The URL to validate
+ * @return {(null|Array)}
+ */
+const validURL = (url) => {
   const regexURL = /^(http(s)?:\/\/)?(www.)?(\w+(-\w*)*)\.\w+(:\d*)?\/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*$/
 
-  return str.match(regexURL)
+  return url.match(regexURL)
 }
 
-// Function to check to duplicate links on the localStorage
+/**
+ * Check duplicate links on the localStorage
+ * 
+ * @function
+ * @param  {string} myUrl) [description]
+ * @return {(undefined|Object)}
+ */
 const checkDuplicateURL = (myUrl) => urlSaved.find((url) => url.normalLink === myUrl)
 
 // ================================================================
@@ -72,16 +97,15 @@ const checkDuplicateURL = (myUrl) => urlSaved.find((url) => url.normalLink === m
 const shortlyClearResults = document.querySelector('.shortly__clear .btn--transparent')
 const observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
-    if (mutation.addedNodes) shortlyClearResults.classList.add('active')
+    if (mutation.addedNodes)
+      shortlyClearResults.classList.add('active')
+    
     if (mutation.removedNodes.length >= 1)
       shortlyClearResults.classList.remove('active')
   })
 })
 
-observer.observe(shortlyResultContainer, {
-  childList: true,
-  subtree: true,
-})
+observer.observe(shortlyResultContainer, { childList: true })
 
 shortlyClearResults.addEventListener('click', () => {
   const results = shortlyResultContainer.childNodes

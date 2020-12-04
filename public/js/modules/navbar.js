@@ -1,4 +1,8 @@
-// All the code relative to displaying/hiding the navbar
+/**
+ * Module for showing/hiding the navbar
+ * 
+ * @module navbar
+ */
 const menu = document.querySelector('.navbar__menu')
 const navbarLinks = document.querySelector('.navbar__links')
 

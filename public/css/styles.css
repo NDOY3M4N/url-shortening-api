@@ -130,6 +130,19 @@ html body p {
   background: #d6d6d6;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
 .navbar {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -360,6 +373,7 @@ html body p {
   background: #fff;
   border-radius: 0.5rem;
   animation: show 0.8s ease-in-out;
+  position: relative;
 }
 .stats .shortly__result__item.remove {
   animation: remove 0.8s ease-in-out;
@@ -403,10 +417,11 @@ html body p {
   margin-top: 0.8rem;
 }
 .stats .shortly__result__item .short-link input {
-  border: none;
-  outline: none;
-  width: 0;
-  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
 }
 @media (min-width: 700px) {
   .stats .shortly__result__item {
