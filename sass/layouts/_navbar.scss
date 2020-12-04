@@ -43,7 +43,7 @@
         &.btn { width: 100%; }
       }
       li:hover a:not(.btn) {
-        color: $dark-violet;
+        color: $cyan;
       }
     }
 
@@ -78,6 +78,9 @@
         li a:not(.btn) {
           color: $grayish-violet;
           display: inline;
+        }
+        li:hover a:not(.btn) {
+          color: $dark-violet;
         }
       }
 

@@ -43,7 +43,7 @@ html body h1 {
   font-size: 2.3rem;
   line-height: 1.2;
 }
-@media (min-width: 700px) {
+@media (min-width: 1024px) {
   html body h1 {
     font-size: 4.5rem;
   }
@@ -188,7 +188,7 @@ html body p {
   width: 100%;
 }
 .navbar__links--left li:hover a:not(.btn), .navbar__links--right li:hover a:not(.btn) {
-  color: #3b3054;
+  color: #2acfcf;
 }
 .navbar__links--right {
   border-top: 1px solid #9e9aa7;
@@ -225,6 +225,9 @@ html body p {
   .navbar__links--left li a:not(.btn), .navbar__links--right li a:not(.btn) {
     color: #9e9aa7;
     display: inline;
+  }
+  .navbar__links--left li:hover a:not(.btn), .navbar__links--right li:hover a:not(.btn) {
+    color: #3b3054;
   }
   .navbar__links--left {
     margin-left: 3rem;
