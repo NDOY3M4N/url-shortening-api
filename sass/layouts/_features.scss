@@ -48,9 +48,8 @@
           animation: spinner .8s linear infinite;
 
           @keyframes spinner {
-            0% { transform: translateY(-50%) rotate(0deg); }
-            50% { transform: translateY(-50%) rotate(180deg); }
-            100% { transform: translateY(-50%) rotate(360deg); }
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
           }
         }
       }

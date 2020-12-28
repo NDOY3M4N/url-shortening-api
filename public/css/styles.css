@@ -361,13 +361,10 @@ html body p {
   animation: spinner 0.8s linear infinite;
 }
 @keyframes spinner {
-  0% {
+  from {
     transform: translateY(-50%) rotate(0deg);
   }
-  50% {
-    transform: translateY(-50%) rotate(180deg);
-  }
-  100% {
+  to {
     transform: translateY(-50%) rotate(360deg);
   }
 }
